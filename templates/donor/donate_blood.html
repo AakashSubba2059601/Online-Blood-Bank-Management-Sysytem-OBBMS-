@@ -1,0 +1,146 @@
+{% extends 'donor/donorbase.html' %}
+{% block content %}
+{% load widget_tweaks %}
+{%load static%}
+<head>
+        <!-- Font special for pages-->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+        <!-- Main CSS-->
+    
+        <link href="{% static "css/main.css" %}"rel="stylesheet" media="all">
+</head>
+{% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'success' %}
+                    <div class="alert alert-success" role="alert" id="success-message"style="text-align:center;">{{ message }}</div>
+                    <script>
+                        setTimeout(function() {
+                            var successMessage = document.getElementById("success-message");
+                            successMessage.style.display = 'none';
+                        }, 8000); // Change the time value (in milliseconds) to adjust the timer
+                    </script>
+                {% elif message.tags == 'error' %}
+                    <div class="alert alert-danger" role="alert" id="error-message"style="text-align:center;">{{ message }}</div>
+                    <script>
+                        setTimeout(function() {
+                            var errorMessage = document.getElementById("error-message");
+                            errorMessage.style.display = 'none';
+                        }, 5000); // Change the time value (in milliseconds) to adjust the timer
+                    </script>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+    <div class="wrapper wrapper--w790">
+      
+        <div style="margin-left: 70px;" class="card card-5">
+            <div class="card-heading">
+                <h2 class="title">DONATE BLOOD</h2>
+            </div>
+            <div class="card-body">
+                <form method="POST" autocomplete="off" enctype="multipart/form-data">
+                    {% csrf_token %}
+<h4 style="text-align: center;font-weight: bolder;margin-top: -8%;color: #df4035;">For More Information Read Blood Basic.</h4>
+<br>
+                    <div class="form-row">
+                        <div class="name">Blood Group</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <div class="rs-select2 js-select-simple select--no-search">
+                                    <select name="bloodgroup" class="form-control">
+                                        <option disabled="disabled" selected="selected">Please Select</option>
+                                        <option>O+</option>
+                                        <option>O-</option>
+                                        <option>A+</option>
+                                        <option>A-</option>
+                                        <option>B+</option>
+                                        <option>B-</option>
+                                        <option>AB+</option>
+                                        <option>AB-</option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Unit (ml)</div>
+                        <div class="value">
+                            <div class="input-group">
+                                {% render_field donation_form.unit|attr:'required:true'  class="input--style-5"  %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Hemoglobin Count(g/dL)</div>
+                        <div class="value">
+                            <div class="input-group">
+                                {% render_field donation_form.hemoglobin|attr:'required:true'  class="input--style-5"  %}
+                            </div>
+                            <p style="color: #df4035;">
+                                Your hemoglobin must be between over 13g/dL to donate blood.
+                             </p>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Disease (if any)</div>
+                        <div class="value">
+                            <div class="input-group">
+                                {% render_field donation_form.disease|attr:'required:true'  class="input--style-5"  %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Age</div>
+                        <div class="value">
+                            <div class="input-group">
+                                {% render_field donation_form.age|attr:'required:true'  class="input--style-5"  %}
+                            </div>
+                            <p style="color: #df4035;">
+                                You must be between 18 to 65 yrs to donate blood.
+                             </p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="name">Weight(kg)</div>
+                        <div class="value">
+                            <div class="input-group">
+                                {% render_field donation_form.weight|attr:'required:true'  class="input--style-5"  %}
+                            </div>
+                            <p style="color: #df4035;">
+                                You must be over 45 kg to donate blood.
+                             </p>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Sex</div>
+                        <div class="value">
+                            <div class="input-group">
+                                {% render_field donation_form.sex|attr:'required:true'  class="input--style-5"  %}
+                            </div>
+                        </div>
+                    </div>
+
+                 
+
+
+
+                    <div class="text-center">
+                        <button class="btn btn--radius-2 btn-success" type="submit">DONATE</button>
+                    </div>
+                </form>
+                <br>
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,262 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+  <title>Blood Basic</title>
+  <link rel="shortcut icon" type="image/png" href="{% static 'image/Logo.png' %}">
+</head>
+<body>
+  {% include "blood/navbar.html" %}
+
+    </p>
+    
+    <section style="margin-top: 2%; background-color: #c32d22; color: aliceblue; color: black; margin-left: 0px; margin-right: 0px; margin-bottom: 40px; padding: 50px;">
+        <p class="lead text-center" style="font-weight: 900; margin-bottom: -4px; font-size: 2.5em; color: aliceblue;">Blood Basic</p>
+    </section>
+    
+    <h4 style="color: #c32d22; margin-left: 300px;margin-right: 300px;">Blood Donations</h4>
+    <p style="color: gray;margin-left: 300px;margin-right: 300px;text-align:justify;">
+        A single donation can save three lives. One blood donation provides different blood components that can help up to three different people. 
+        Blood banking refers to the process of collecting, separating, and storing blood. Blood banks collect blood and separate it into its 
+        various components so they can be used most effectively according to the needs of the patient. The donor usually gives one pint of whole 
+        blood. The blood is tested for blood type and infectious disease (HIV, Hepatitis B, Hepatitis C and Syphilis), and then the blood is 
+        separated into its components red blood cells, plasma and platelets. The stock blood is then crossmatched with patients blood before 
+        transfusion. <br>
+        Blood donation is safe. New, disposable equipment is used for each donor, so there's no risk of contracting a bloodborne 
+        infection by donating blood. Within 24 hours of a blood donation, your body replaces the lost fluids. And after several weeks, your body 
+        replaces the lost red blood cells. Health benefits of donating blood include good health and reduced risk of cancer and hemochromatosis. 
+        It helps in reducing the risk of damage to liver and pancreas. Donating blood may help in improving cardiovascular health and reducing 
+        obesity.
+    </p>
+    <br>
+    <h6 style="margin-left: 300px;">You are eligible to donate blood if:
+    </h6>
+    <p style="color: gray;margin-left:300px;">
+        1. you are in good health
+        <br>
+        2. weigh at least 45kg
+        <br>
+        3. you are 18 to 65 years old
+        <br>
+        4. you should have hemoglobin level of above 12 g/dL.
+    </p>
+    <br>
+    <h6 style="margin-left: 300px;">You are not eligible to donate blood if you:
+    </h6>
+    <p style="color: gray;margin-left:300px;">
+      1. have ever used self-injected drugs (non-prescription)
+      </p>
+      
+      <p style="color: gray;margin-left: 300px;margin-right: 300px;text-align:justify;">
+        You need to prepare your body. It is important to eat iron-rich foods such as red meats, fish, beans and spinach, drink plenty of water the
+         two days prior to donating, get a good sleep and eat a healthy meal two hours before your donation.
+    </p>
+    <br>
+    <h4 style="color: #c32d22; margin-left: 300px;margin-right: 300px;">About Blood</h4>
+    <br>
+    <p style="color: gray;margin-left:300px;text-align:justify;">
+      Blood is a body fluid in humans and other animals that has many different functions, including:
+      <br>
+      1. transporting oxygen and nutrients to the lungs and tissues
+      <br>
+      2. forming blood clots to prevent excess blood loss
+      <br>
+      3. carrying cells and antibodies that fight infection
+      <br>
+      4. bringing waste products to the kidneys and liver, which filter and clean the blood
+      <br>
+      5. regulating body temperature
+      <br>
+      There are four blood groups: A, B, AB and O and two types of RH factor: Positive and Negative.
+    </p>
+    <img src="/static/image/blood-group.png" alt="My Image" style="display: block; margin-left: 400px;margin-right: 400px; width: 50%; height: auto;">
+    <br>
+    <p style="color: gray;margin-left:300px;margin-right: 300px;text-align:justify;">
+      Bood has four main components: plasma, red blood cells, white blood cells, and platelets. The blood that runs through the veins, arteries, 
+      and capillaries is known as whole blood, a mixture of about 55 percent plasma and 45 percent blood cells.</p>
+      <br>
+      <img src="/static/image/composition.png" alt="My Image" style="display: block; margin-left: 400px;margin-right: 400px; width: 50%; height: auto;">
+      <br>
+        <table class="table table-striped table-bordered"style="width:50%;border-collapse: collapse; border: 1px solid gray;margin-left: 400px;margin-right: 400px;">
+          <thead>
+            <tr>
+              <th scope="col">Type</th>
+              <th scope="col">Expiration</th>
+              <th scope="col">Remarks</th>
+              <th scope="col">Storage Temperature(c)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Whole blood
+              </td>
+              <td>
+                35 days
+              </td>
+              <td rowspan="7">
+                These storage <br />timings are<br />
+                valid if <br />and only <br />if they <br />are stored
+                <br />in appropriate <br />condition.
+              </td>
+              <td>1-6</td>
+            </tr>
+            <tr>
+              <th colspan="2">
+                Blood components
+              </th>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                Packed red blood cells (PRBCs)
+              </td>
+              <td>
+                42 days
+              </td>
+              <td>
+                1-6
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Platelet-rich plasma (PRP)
+              </td>
+              <td>
+                72 hours
+              </td>
+              <td>
+                20-24
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Fresh frozen plasma (FFP)
+              </td>
+              <td>
+                6 to 12 months
+              </td>
+              <td>
+                -18C or colder
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Cryoprecipitate (Cryo-AHF)
+              </td>
+              <td>
+                6 to 12 months
+              </td>
+              <td>
+                -18C or colder
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Platelet concentrate (PC)
+              </td>
+              <td>
+                5 Days
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <h4 style="color: #c32d22; margin-left: 300px;margin-right: 300px;">Plasma</h4>
+        <br />
+        <p style="color: gray;margin-left:300px;margin-right: 300px;text-align:justify;">
+          The liquid component of blood is called plasma, a mixture of
+          water, sugar, fat, protein, and salts. The main job of the plasma
+          is to transport blood cells throughout your body along with
+          nutrients, waste products, antibodies, clotting proteins, chemical
+          messengers such as hormones, and proteins that help maintain the
+          body's fluid balance.
+        </p>
+        <img src="https://assets.rumsan.com/hamro-lifebank/website/images/plasma.png" alt="blood-plasma"style="display: block; margin-left: 400px;margin-right: 400px; width: 50%; height: auto;">
+        <br>
+        <br />
+        <br />
+        <h4 style="color: #c32d22; margin-left: 300px;margin-right: 300px;">Red Blood Cells</h4>
+        <br />
+        <p style="color: gray;margin-left:300px;margin-right: 300px;text-align:justify;">
+          Known for their bright red color, red cells are the most abundant
+          cell in the blood, accounting for about 40 to 45 percent of its
+          volume. The shape of a red blood cell is a biconcave disk with a
+          flattened center - in other words, both faces of the disc have
+          shallow bowl-like indentations (a red blood cell looks like a
+          donut).
+        </p>
+        <img src="https://assets.rumsan.com/hamro-lifebank/website/images/rbc.png" alt="red blood cells"style="display: block; margin-left: 400px;margin-right: 400px; width: 50%; height: auto;">
+        <br>
+        <br />
+        <br />
+        <h4 style="color: #c32d22; margin-left: 300px;margin-right: 300px;">White Blood Cells</h4>
+        <br />
+        <p style="color: gray;margin-left:300px;margin-right: 300px;text-align:justify;">
+          White blood cells protect the body from infection. They are much
+          fewer in number than red blood cells, accounting for about 1
+          percent of your blood.
+        </p>
+        <img src="https://assets.rumsan.com/hamro-lifebank/website/images/wbc.png" alt="white blood cells"style="display: block; margin-left: 400px;margin-right: 400px; width: 50%; height: auto;">
+        <br>
+        <br />
+        <br />
+        <h4 style="color: #c32d22; margin-left: 300px;margin-right: 300px;">Platelets</h4>
+        <br />
+        <p style="color: gray;margin-left:300px;margin-right: 300px;text-align:justify;">
+          Unlike red and white blood cells, platelets are not actually cells
+          but rather small fragments of cells. Platelets help the blood
+          clotting process (or coagulation) by gathering at the site of an
+          injury, sticking to the lining of the injured blood vessel, and
+          forming a platform on which blood coagulation can occur. This
+          results in the formation of a fibrin clot, which covers the wound
+          and prevents blood from leaking out.
+        </p>
+        <img src="https://assets.rumsan.com/hamro-lifebank/website/images/platelets.png	" alt="blood platelets"style="display: block; margin-left: 400px;margin-right: 400px; width: 50%; height: auto;">
+        <br>
+      </div>
+    </div>
+  </div>
+</section>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div style="position: fixed; bottom: 30px; left: 20px;">
+      <img src="/static/image/homepage.png" alt="My Image" style="display: block; margin-left: 0px; width: 15%; height: auto;">
+    </div>
+    
+  <div style="position: fixed;left: 0%;bottom: 0;width: 100%;">
+  {% include "blood/footer.html" %}
+</div>
+
+</body>
+
+</html>
+

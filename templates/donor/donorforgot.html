@@ -1,0 +1,89 @@
+{%load static%}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
+ 
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Main CSS-->
+
+    <link href="{% static "css/main.css" %}"rel="stylesheet" media="all">
+    <style>
+
+    </style>
+  </head>
+  <body>
+    {% include "blood/navbar.html" %}    
+        
+        <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+          <div class="wrapper wrapper--w790">
+            <br><br><br>
+            {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'success' %}
+                    <div class="alert alert-success" role="alert" id="success-message"style="text-align:center;">{{ message }}</div>
+                    <script>
+                        setTimeout(function() {
+                            var successMessage = document.getElementById("success-message");
+                            successMessage.style.display = 'none';
+                        }, 8000); // Change the time value (in milliseconds) to adjust the timer
+                    </script>
+                {% elif message.tags == 'error' %}
+                    <div class="alert alert-danger" role="alert" id="error-message"style="text-align:center;">{{ message }}</div>
+                    <script>
+                        setTimeout(function() {
+                            var errorMessage = document.getElementById("error-message");
+                            errorMessage.style.display = 'none';
+                        }, 5000); // Change the time value (in milliseconds) to adjust the timer
+                    </script>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        
+            <div class="card card-5">
+                <div class="card-heading">
+                  
+                    <h2 class="title">Forgot Password</h2>
+                </div>
+                
+                     <div class="col-lg-6">
+                        <div class="login_form_inner">
+                          <div class="text-center">
+                           <h5 style="position: relative;left: 50%;margin-bottom: 25px;">Enter Email To Send OTP</h5>
+                           <form class="row login_form" method="post" action="{% url 'send_otp' %}" style="position: relative;left: 50%;">
+                              {% csrf_token %}
+                              <div class="col-md-12 form-group">
+                                 <input name="email"type="text" class="form-control" style="margin-bottom: 20px;" id="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+                              </div>
+                        
+
+                              
+                              <div class="col-md-12 form-group">
+                                <button class="btn btn--radius-6 btn-success btn-block" style="margin-bottom: 20px;" type="submit" value="submit" class="button  w-100">Send OTP</button>
+                             </div>
+                    </form>
+                    
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <div style="position: fixed;left: 0%;bottom: 0;width: 100%;">
+      {% include "blood/footer.html" %}
+    </div><!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </body>
+</html>

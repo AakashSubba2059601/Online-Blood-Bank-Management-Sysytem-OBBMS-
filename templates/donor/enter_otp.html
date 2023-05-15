@@ -1,0 +1,102 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
+ 
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Main CSS-->
+
+    <link href="{% static "css/main.css" %}"rel="stylesheet" media="all">
+    <style>
+
+    </style>
+  </head>
+  <body>
+   {% include 'blood/navbar.html' %}
+   
+
+       
+   
+
+   
+<!-- ================ End Content Area ================= -->
+<!-- Alerts -->
+
+<!--================Login Box Area =================-->
+   <div class="page-wrapper bg-gra-03 p-t-70 p-b-50">
+      <div class="wrapper wrapper--w790">
+        <br><br><br>
+        {% if messages %}
+   {% for message in messages %}
+       {% if message.tags == 'success' %}
+           <div class="alert alert-success" role="alert" id="success-message"style="text-align:center;">{{ message }}</div>
+           <script>
+               setTimeout(function() {
+                   var successMessage = document.getElementById("success-message");
+                   successMessage.style.display = 'none';
+               }, 8000); // Change the time value (in milliseconds) to adjust the timer
+           </script>
+       {% elif message.tags == 'error' %}
+           <div class="alert alert-danger" role="alert" id="error-message"style="text-align:center;">{{ message }}</div>
+           <script>
+               setTimeout(function() {
+                   var errorMessage = document.getElementById("error-message");
+                   errorMessage.style.display = 'none';
+               }, 5000); // Change the time value (in milliseconds) to adjust the timer
+           </script>
+       {% endif %}
+   {% endfor %}
+{% endif %}
+{% if error %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ error }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <script>
+        setTimeout(function() {
+            $('.alert').alert('close');
+        }, 3000);
+    </script>
+{% endif %}
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+    <div class="wrapper wrapper--w790">
+        <div class="card card-5">
+            <div class="card-heading">
+         <div class="col-lg-6">
+            <div class="login_form_inner">
+               <div class="form-row">
+
+               <h3 class ="title" style="position: relative;left:50%">Enter OTP To Forgot Password</h3>
+               <form class="row login_form" method="post" style="position: relative;left:50%;">
+
+                  {% csrf_token %}
+
+                  <div class="col-md-12 form-group" >
+                     <input name="otp"type="text" style="margin-top: 25px;" class="form-control" id="otp" placeholder="One Time Password (OTP)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'One Time Password (OTP)'">
+                  </div>
+                  <div class="col-md-12 form-group">
+                     <button class="btn btn--radius-6 btn-success btn-block" style="margin-bottom: 15px;" type="submit" value="submit" class="button  w-100">Submit OTP</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+
+   <div style="position: fixed;left: 0%;bottom: 0;width: 100%;">
+      {% include "blood/footer.html" %}
+    </div>
+<!--================End Login Box Area =================-->
+{% endblock %}
+<!--================ End Enter OTP Area =================-->

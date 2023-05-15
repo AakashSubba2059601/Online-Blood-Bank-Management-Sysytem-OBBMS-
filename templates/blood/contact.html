@@ -1,0 +1,90 @@
+{% extends 'blood/adminbase.html' %}
+{% block content %}
+{% load widget_tweaks %}
+{%load static%}
+<head>
+    
+        <title>Contact Us</title>
+        <link rel="shortcut icon" type="image/png" href="{% static 'image/Logo.png' %}">
+      
+ <style>
+     .label {
+  color: white;
+  padding: 8px;
+}
+
+.success {background-color: #4CAF50;} /* Green */
+.info {background-color: #2196F3;} /* Blue */
+.warning {background-color: #ff9800;} /* Orange */
+.danger {background-color: #f44336;} /* Red */
+.other {background-color: #e7e7e7; color: black;} /* Gray */
+ </style>
+</head>
+<br><br>
+{% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'success' %}
+                    <div class="alert alert-success" role="alert" id="success-message"style="text-align:center;">{{ message }}</div>
+                    <script>
+                        setTimeout(function() {
+                            var successMessage = document.getElementById("success-message");
+                            successMessage.style.display = 'none';
+                        }, 8000); // Change the time value (in milliseconds) to adjust the timer
+                    </script>
+                {% elif message.tags == 'error' %}
+                    <div class="alert alert-danger" role="alert" id="error-message"style="text-align:center;">{{ message }}</div>
+                    <script>
+                        setTimeout(function() {
+                            var errorMessage = document.getElementById("error-message");
+                            errorMessage.style.display = 'none';
+                        }, 5000); // Change the time value (in milliseconds) to adjust the timer
+                    </script>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+<div class="container">
+    <section style=" margin-top: 0%; background-color: #109342;color: aliceblue;margin-left: 300px;margin-right: 300px;margin-bottom: 5px;padding: 10px;">
+        <p class="lead text-center"style="font-weight: bold;margin-bottom: -4px;">Messages From Users</p>
+    </section>
+    {% if message %}
+   <h5 class="text-center" style="color: red;"> {{message}}</h5><br>
+{% else %}
+
+{% endif %}
+    <table class="table table-light table-hover table-bordered table-striped">
+        <thead class="bg-dark">
+            <tr>
+                <th scope="col" style="color: rgb(192, 192, 192);">Name</th>
+                <th scope="col" style="color: rgb(192, 192, 192);">Phone</th>
+                <th scope="col" style="color: rgb(192, 192, 192);">Email</th>
+                <th scope="col" style="color: rgb(192, 192, 192);">Message</th>
+                <th scope="col" style="color: rgb(192, 192, 192);">Action</th>
+
+                
+               
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in contact %}
+    <tr>
+        <td>{{ t.name }}</td>
+        <td>{{ t.phone }}</td>
+        <td>{{ t.email }}</td>
+        <td>{{ t.content }}</td>
+        <td>
+            <button class="btn btn-danger btn-sm">
+                <a style="text-decoration: none;color: white;" href="{% url 'delete-contact' pk=t.pk %}">Delete</a></button>
+            <button class="btn btn-success btn-sm">
+                <a style="text-decoration: none;color: white;" href="send_email">Reply</a> </button>
+            
+        </td>
+    </tr>
+{% endfor %}
+
+
+        </tbody>
+    
+    </table>
+</div>
+
+{% endblock content %}

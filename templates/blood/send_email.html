@@ -1,0 +1,21 @@
+{% extends 'blood/adminbase.html' %}
+{% block content %}
+{% load widget_tweaks %}
+{%load static%}
+<html>
+<head>
+    <title>Send Email</title>
+</head>
+<body>
+    <div style="text-align: center;margin-top: 5%;">
+    <h1>Send an Email</h1>
+    <form method="post" >
+        {% csrf_token %}
+        <div style="color: #4CAF50;">{{ form.as_p }}</div>
+        <button type="submit" style="background-color:#4CAF50 ;border: none;color: white;text-align: center;text-decoration: none;padding: 10px 25px; display: inline-block;font-size: 22px; border-radius: 5px;">Submit</button>
+    </form>
+</div>
+</body>
+</html>
+{% endblock content %}
+

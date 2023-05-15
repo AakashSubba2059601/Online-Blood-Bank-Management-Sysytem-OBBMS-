@@ -1,0 +1,201 @@
+{% extends 'donor/donorbase.html' %}
+{% load static %}
+{% block content %}
+<br><br>
+<!DOCTYPE html>
+<head>
+  <title>Dashboard</title>
+  <link rel="shortcut icon" type="image/png" href="{% static 'image/Logo.png' %}">
+</head>
+{% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'success' %}
+                    <div class="alert alert-success" role="alert" id="success-message"style="text-align:center;">{{ message }}</div>
+                    <script>
+                        setTimeout(function() {
+                            var successMessage = document.getElementById("success-message");
+                            successMessage.style.display = 'none';
+                        }, 8000); // Change the time value (in milliseconds) to adjust the timer
+                    </script>
+                {% elif message.tags == 'error' %}
+                    <div class="alert alert-danger" role="alert" id="error-message"style="text-align:center;">{{ message }}</div>
+                    <script>
+                        setTimeout(function() {
+                            var errorMessage = document.getElementById("error-message");
+                            errorMessage.style.display = 'none';
+                        }, 5000); // Change the time value (in milliseconds) to adjust the timer
+                    </script>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        
+<div class="container">
+  <h2 style="font-weight: bold;">Total Available Bloods <i class="fas fa-tint" ></i></h2>
+
+    <div class="row">
+        <div class="col-sm-3">
+          <div class="card bg-light">
+            <div class="card-body">
+                <div class="blood">
+                    <h2>A+ <i class="fas fa-tint" ></i></h2>
+                </div><br><br>
+                <div>
+                    {{A1.unit}}ml
+                </div>                            
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <h2>B+ <i class="fas fa-tint"></i></h2>
+                    </div><br><br>
+                    <div>
+                      {{B1.unit}}ml
+                    </div>                            
+                </div>
+              </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <h2>O+ <i class="fas fa-tint"></i></h2>
+                    </div><br><br>
+                    <div>
+                      {{O1.unit}}ml
+                    </div>                            
+                </div>
+              </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <h2>AB+ <i class="fas fa-tint"></i></h2>
+                    </div><br><br>
+                    <div>
+                      {{AB1.unit}}ml
+                    </div>                            
+                </div>
+              </div>
+          </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="card bg-light">
+            <div class="card-body">
+                <div class="blood">
+                    <h2>A- <i class="fas fa-tint"></i></h2>
+                </div><br><br>
+                <div>
+                  {{A2.unit}}ml
+                </div>                            
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <h2>B- <i class="fas fa-tint"></i></h2>
+                    </div><br><br>
+                    <div>
+                      {{B2.unit}}ml
+                    </div>                            
+                </div>
+              </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <h2>O- <i class="fas fa-tint"></i></h2>
+                    </div><br><br>
+                    <div>
+                      {{O2.unit}}ml
+                    </div>                            
+                </div>
+              </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <h2>AB- <i class="fas fa-tint"></i></h2>
+                    </div><br><br>
+                    <div>
+                      {{AB2.unit}}ml
+                    </div>                            
+                </div>
+              </div>
+          </div>
+      </div>
+      
+
+    <div class="row">
+
+      <div class="col-sm-3">
+        <div class="card bg-light">
+          <div class="card-body">
+              <div class="blood">
+                <i class="fa fa-user-plus xyz" style="color: #1e88e5;"></i>
+              </div><br>
+              <div>
+                Request Made <br>
+                  {{requestmade}}
+              </div>                            
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="card bg-light">
+            <div class="card-body">
+                <div class="blood">
+                  <i class="fas fa-sync xyz" style="color:#efb000;"></i>
+                </div><br>
+                <div>
+                    Pending Request <br>
+                    {{requestpending}}
+                </div>                            
+            </div>
+          </div>
+      </div>
+
+      <div class="col-sm-3">
+          <div class="card bg-light">
+              <div class="card-body">
+                  <div class="blood">
+                    <i class="fas fa-check-circle xyz" style="color: green;"></i>
+                  </div><br>
+                  <div>
+                       Approved Request<br>
+                      {{requestapproved}}
+                  </div>                            
+              </div>
+            </div>
+      </div>
+      <div class="col-sm-3">
+          <div class="card bg-light">
+              <div class="card-body">
+                  <div class="blood">
+                    <i class="fas fa-times-circle xyz" style="color: red;"></i>
+                  </div><br>
+                  <div>
+                       Rejected Request <br>
+                      {{requestrejected}}
+                  </div>                            
+              </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+{% endblock content %}
